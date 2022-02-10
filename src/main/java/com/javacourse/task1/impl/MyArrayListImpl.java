@@ -2,7 +2,6 @@ package com.javacourse.task1.impl;
 
 import com.javacourse.task1.MyArrayList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
