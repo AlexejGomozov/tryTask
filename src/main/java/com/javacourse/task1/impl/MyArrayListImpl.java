@@ -66,6 +66,7 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
             System.out.println("Wrong index. Elements in list: " + sizeOfElements);
             System.out.println("Try again.");
             return null;
+
         }
     }
 
