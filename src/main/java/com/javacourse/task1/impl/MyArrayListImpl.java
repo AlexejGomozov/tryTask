@@ -7,16 +7,18 @@ import java.util.Random;
 
 public class MyArrayListImpl<T> implements MyArrayList<T> {
 
-    private final int DEFOLT_CAPACITY = 16;
+    private final int DEFAULT_CAPACITY = 16;
     private final int CUT = 4;
-    private Object[] array = new Object[DEFOLT_CAPACITY];
+    private Object[] array = new Object[DEFAULT_CAPACITY];
     private int pointer;
+    private int sizeOfElements=0;       //Используем переменную для определения количества занятых ячеек в массиве
 
     @Override
     public boolean add(T element) {
             pointer = array.length-1;
             resize( array.length*2);
             System.out.println(array[++pointer]= element);
+            sizeOfElements++;
         return array[pointer] == element;
 
     }
@@ -36,27 +38,46 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
 
     @Override
     public T remove(int index) {
+        sizeOfElements--;
         return null;
     }
 
     @Override
     public int size() {
-        return 0;
+        return sizeOfElements;
     }
 
     @Override
     public void set(int index, Object element) {
-
+        try{
+        array[index]=element;}
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
+            System.out.println("Try again.");
+        }
     }
 
     @Override
     public T get(int index) {
-        return null;
+        try {
+        return (T) array[index];}
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
+            System.out.println("Try again.");
+            return null;
+        }
     }
 
     @Override
     public boolean contains(T element) {
-        return false;
+        boolean contains=false;
+        for (int e = 0; e<sizeOfElements; e++) {
+            if (array[e]==element) {
+                contains = true;
+                break;
+            }
+        }
+        return contains;
     }
 
 
@@ -65,6 +86,7 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
         Object[] newArray = new Object[newLength];
         System.arraycopy(array, 0, newArray, 0, pointer);
         return  array = newArray;
+
     }
 
     public static void main(String[]args){
@@ -72,5 +94,7 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
 
         System.out.println(listInt.add(3));
         System.out.println(listInt.size());
+        System.out.println(listInt.contains(3));
+
     }
 }
