@@ -6,4 +6,5 @@ pom.xml
         src/main/java/.DS_Store
         src/main/java/com/.DS_Store
         src/main/java/com/javacourse/.DS_Store
+ target/
 
