@@ -2,6 +2,7 @@ package com.javacourse.task1.impl;
 
 import com.javacourse.task1.MyArrayList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -49,13 +50,23 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
 
     @Override
     public void set(int index, Object element) {
-        array[index]=element;
+        try{
+        array[index]=element;}
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
+            System.out.println("Try again.");
+        }
     }
 
     @Override
     public T get(int index) {
-
-        return (T) array[index];
+        try {
+        return (T) array[index];}
+        catch (IndexOutOfBoundsException e){
+            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
+            System.out.println("Try again.");
+            return null;
+        }
     }
 
     @Override
@@ -85,10 +96,6 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
         System.out.println(listInt.add(3));
         System.out.println(listInt.size());
         System.out.println(listInt.contains(3));
-        listInt.set(0, 3);
-        System.out.println(listInt.get(0));
-        System.out.println(listInt.contains(3));
-
 
     }
 }
