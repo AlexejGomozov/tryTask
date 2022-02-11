@@ -21,7 +21,7 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
             array[notNullElement+1] = element; //в след-щую ячейку после !null вставляем element
         }else{
             return changeFirstNullElInList(array, element); //если же заполненная емкость массива менее длинны массива то заменяем
-        }                                                  //1ю !null ячейку  element-ом
+        }                                                  //1ю null ячейку  element-ом
         return array[notNullElement+1] == element;
     }
 
@@ -66,7 +66,7 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
         return counter;
     }
 
-    private boolean changeFirstNullElInList(Object[]list, T element){//метод для изменени !null на element
+    private boolean changeFirstNullElInList(Object[]list, T element){//метод для изменени null на element
         boolean change = true;
         int i = 0;
         while(i<list.length){
