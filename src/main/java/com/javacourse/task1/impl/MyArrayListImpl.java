@@ -14,16 +14,16 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
 
     @Override
     public boolean add(T element) {
-            pointer = array.length-1;
-           int notNullElement = amountNotNullEl(array); // определяем заполняемость массива, сколько эл-в !null
-           if(notNullElement==pointer){//если заполняемость массива = длинне массива, то увеличиваем
+        pointer = array.length-1;
+        int notNullElement = amountNotNullEl(array); // определяем заполняемость массива, сколько эл-в !null
+        if(notNullElement==pointer){//если заполняемость массива = длинне массива, то увеличиваем
             resize(array.length*2);  //емкость массива в 2 раза
             array[notNullElement+1] = element; //в след-щую ячейку после !null вставляем element
-           }else{
-               return changeFirstNullElInList(array, element); //если же заполненная емкость массива менее длинны массива то заменяем
-           }                                                  //1ю null ячейку  element-ом
+        }else{
+            return changeFirstNullElInList(array, element); //если же заполненная емкость массива менее длинны массива то заменяем
+        }                                                  //1ю !null ячейку  element-ом
         return array[notNullElement+1] == element;
-        }
+    }
 
     @Override
     public void sort() {
@@ -35,7 +35,7 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
 
 
     @Override
-    public void concat(MyArrayList<T> newList) { //соединение через приведение к списку и методы коллекции
+    public void concat(MyArrayList<T> newList) { //соединение через приведение к списку и метов коллекции
         List resultList = new ArrayList<>(this.array.length + newList.size());
         Collections.addAll(resultList, Arrays.asList(this.array));
         Collections.addAll(resultList, Arrays.asList(newList));
@@ -54,59 +54,21 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
         return (T)array;
     }
 
-    @Override
-    public int size() {
-        return sizeOfElements;
-    }
 
-    @Override
-    public void set(int index, Object element) {
-        try{
-        array[index]=element;}
-        catch (IndexOutOfBoundsException e){
-            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
-            System.out.println("Try again.");
-        }
-    }
-
-    @Override
-    public T get(int index) {
-         try {
-        return (T) array[index];}
-        catch (IndexOutOfBoundsException e){
-            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
-            System.out.println("Try again.");
-            return null;
-        }
-    }
-
-    @Override
-    public boolean contains(T element) {
-       boolean contains=false;
-        for (int e = 0; e<sizeOfElements; e++) {
-            if (array[e]==element) {
-                contains = true;
-                break;
-            }
-        }
-     return contains;
-    }
-
-
-//_____________________________________________________________________________
+    //_____________________________________________________________________________
     private int amountNotNullEl(Object[] arr){ //метод для подсчета !null ячеек
         int counter = 0;
-            for(int i = 0; i<arr.length; i++) {
-                if (arr[i] != null) {
-                    counter++;
-                }
+        for(int i = 0; i<arr.length; i++) {
+            if (arr[i] != null) {
+                counter++;
             }
-            return counter;
+        }
+        return counter;
     }
 
-    private boolean changeFirstNullElInList(Object[]list, T element){//метод для изменени null на element
-          boolean change = true;
-          int i = 0;
+    private boolean changeFirstNullElInList(Object[]list, T element){//метод для изменени !null на element
+        boolean change = true;
+        int i = 0;
         while(i<list.length){
             if(list[i]==null) list[i] =element;
             i++;
@@ -126,5 +88,78 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
         public int compare(T o1, T o2) {
             return ((Integer) o1).compareTo((Integer) o2); //для варианта сортировки типа Integer
         }
+    }
+    //==================================================================================================================================
+    //Maksym's methods
+    public Object[] resiz(int newLength) {      //увеличение емкости MyArrayList
+        Object[] newArray = new Object[newLength];
+        System.arraycopy(array, 0, newArray, 0, sizeOfElements); //отличие в моей переменной sizeOfElements
+        return  array = newArray;                                              //которая указывает на количество объектов в MyArrayList
+    }
+    @Override
+    public boolean adds(T element) {          //Добавляет эллемент в массив и увеличивает его емкость в 2 раза в случае, если массив заполнен
+        if(array.length==sizeOfElements){
+            resiz(array.length*2);
+        }
+        array[sizeOfElements]=element;
+        sizeOfElements++;                       //Увеличивает переменную, которая отвечает за количество элементов в массиве
+        return true;
+    }
+
+    @Override
+    public boolean delete(int index) {                    //Удаляет элемент по индксу MyArrayList
+        if (index < sizeOfElements) {
+            for (int i = index; i < sizeOfElements; i++)  //Сдвигает все элементы MyArrayList после удаленного влево
+                array[i] = array[i + 1];
+            array[sizeOfElements] = null;
+            sizeOfElements--;                         //уменьшает счетчик элементов массива на 1
+            if (array.length > DEFAULT_CAPACITY && sizeOfElements < array.length / CUT) //Если элементов MyArrayList в 4 раза меньше чем
+                resiz(array.length / 2);                                      //объем базового массива, то он уменьшается в 2 раза
+            return true;
+        }
+        else{                                                           //В случае если была попытка удалить несуществующий элемент массива
+            System.out.println("Element is not exist or Element=null"); //то будет выведен False и ничего не произойдет
+            return false;
+        }
+    }
+
+
+
+    @Override
+    public int size() {                                                 //Возвращает размер MyArrayList по счетчику sizeOfElements
+        return sizeOfElements;
+    }
+
+    @Override
+    public void set(int index, Object element) {                        //Устанавливает значение ячейки массива из списка уже существующих элементов
+        if(index<sizeOfElements){                                       //Если елемнт проинициализирован, то преобразование произойдет
+            array[index]=element;}
+        else{                                                           //Если нет, то будет текст с ошибкой
+            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
+            System.out.println("Try again.");
+        }
+    }
+
+    @Override
+    public T get(int index) {                       //Возвращает объект в MyArrayList, если индекс содержит объект
+        if(index<sizeOfElements){
+            return (T) array[index];}
+        else{                                       //Если объект пустой, то выдает ошибку
+            System.out.println("Wrong index. Elements in list: " + sizeOfElements);
+            System.out.println("Try again.");
+            return null;
+        }
+    }
+
+    @Override
+    public boolean contains(T element) {        //Перебирает элементы существующего списка в поисках объекта
+        boolean contains=false;
+        for (int e = 0; e<sizeOfElements; e++) {
+            if (array[e]==element) {            //Как только находит-выходит из метода
+                contains = true;
+                break;
+            }
+        }
+        return contains;
     }
 }
