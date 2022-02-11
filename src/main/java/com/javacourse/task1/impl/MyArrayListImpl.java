@@ -36,7 +36,9 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
 
     @Override
     public void concat(MyArrayList<T> newList) { //соединение через приведение к списку и метов коллекции
-        Collections.addAll(Arrays.asList(this.array), Arrays.asList(newList));
+        List resultList = new ArrayList<>(this.array.length + newList.size());
+        Collections.addAll(resultList, Arrays.asList(this.array));
+        Collections.addAll(resultList, Arrays.asList(newList));
     }
 
     @Override
