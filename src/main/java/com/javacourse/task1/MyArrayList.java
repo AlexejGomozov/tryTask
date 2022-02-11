@@ -4,7 +4,7 @@ public interface MyArrayList<T> {
 //Alexey tasks
     boolean add(T element);
     void sort();
-    void concat(MyArrayList<T> newList);
+   void concat(MyArrayList<T> newList);
     T remove(int index);
 //Maksym tasks
     int size();
