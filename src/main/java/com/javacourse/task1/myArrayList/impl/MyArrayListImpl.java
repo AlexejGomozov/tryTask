@@ -1,6 +1,6 @@
-package com.javacourse.task1.impl;
+package com.javacourse.task1.myArrayList.impl;
 
-import com.javacourse.task1.MyArrayList;
+import com.javacourse.task1.myArrayList.MyArrayList;
 
 import java.util.*;
 

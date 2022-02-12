@@ -1,4 +1,4 @@
-package com.javacourse.task1;
+package com.javacourse.task1.myArrayList;
 
 public interface MyArrayList<T> {
     //Alexey's tasks
