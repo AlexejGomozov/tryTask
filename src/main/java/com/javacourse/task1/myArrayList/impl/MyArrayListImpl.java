@@ -44,11 +44,12 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
     @Override
     public T remove(int index) {
         pointer = array.length;
-        for (int i = index; i<pointer; i++)
+        int notNullElement = amountNotNullEl(array);
+        for (int i = index; i<notNullElement; i++)
             array[i] = array[i+1];  //смещаем значение на ячейку влево, начиная с той кот-ю удалили
-        array[pointer] = null;
-        pointer--;
-        if (array.length >DEFAULT_CAPACITY && (amountNotNullEl(array)) < array.length/CUT)
+        array[notNullElement] = null;
+        notNullElement--;
+        if (array.length >DEFAULT_CAPACITY && notNullElement < array.length/CUT)
             resize(array.length/2); // уменьшаю емкость массива при этом условии
 
         return (T)array;
