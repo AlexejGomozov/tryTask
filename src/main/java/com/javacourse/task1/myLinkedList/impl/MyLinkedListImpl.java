@@ -74,7 +74,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
     }
 
     @Override
-    public E peekFirst() {
+    public E peekFirst() {  //Возвращает первый элемент
         if (size!=0){
             return getElementByIndex(0);
         }
@@ -82,7 +82,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
     }
 
     @Override
-    public E peekLast() {
+    public E peekLast() {    //Возвращает последний элемент
         if (size!=0){
             return (E) getElementByIndex(size-1);
         }
@@ -91,7 +91,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
 
     @Override
-    public E pollFirst() {
+    public E pollFirst() {   //Возвращает первый элемент и удаляет его из списка
         if (size!=0){
         E first= getElementByIndex(0);
         delete(getElementByIndex(0));
@@ -100,7 +100,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
     }
 
     @Override
-    public E pollLast() {
+    public E pollLast() {    //Возвращает последний элемент и удаляет его из списка
         if (size!=0){
         E last = getElementByIndex(size-1);
         delete(getElementByIndex(size-1));
@@ -135,4 +135,5 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
             public void setPrevElement(Node<E> prevElement) {this.prevElement = prevElement;}
         }
+
 }
