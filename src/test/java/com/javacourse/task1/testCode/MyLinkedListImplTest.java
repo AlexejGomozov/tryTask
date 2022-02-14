@@ -4,13 +4,7 @@ import com.javacourse.task1.myLinkedList.impl.MyLinkedListImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MyLinkedListImplTest {
 
@@ -69,5 +63,63 @@ public class MyLinkedListImplTest {
         stringLinked.addFirst("dcba");
         String  actional = stringLinked.getElementByIndex(1);
         assertEquals(actional,expectedElement);
+    }
+
+    @Test
+    void pollFirstshouldReturnNull(){
+        String first=stringLinked.pollFirst();
+        assertNull(first);
+    }
+
+    @Test
+    void pollLastshouldReturnNull(){
+        String first=stringLinked.pollLast();
+        assertNull(first);
+    }
+
+    @Test
+    void peekFirstshouldReturnNull(){
+        String first=stringLinked.pollFirst();
+        assertNull(first);
+    }
+
+    @Test
+    void peekLastshouldReturnNull(){
+        String first=stringLinked.pollFirst();
+        assertNull(first);
+    }
+
+    @Test
+    void pollFirstshouldReturnAndDeleteFirstElement(){
+        stringLinked.addLast("dcba");
+        stringLinked.addFirst("abcd");
+        String  actional = stringLinked.pollFirst();
+        assertEquals(actional, expectedElement);
+        assertFalse((stringLinked.contains(expectedElement)));
+    }
+
+    @Test
+    void pollLastshouldReturnAndDeleteLastElement(){
+        stringLinked.addFirst("dcba");
+        stringLinked.addLast("abcd");
+        String  actional = stringLinked.pollLast();
+        assertEquals(actional, expectedElement);
+        assertFalse((stringLinked.contains(expectedElement)));
+    }
+
+    @Test
+    void peekFirstshouldReturnFirstElement(){
+        stringLinked.addLast("dcba");
+        stringLinked.addFirst("abcd");
+        String  actional = stringLinked.peekFirst();
+        assertEquals(actional, expectedElement);
+    }
+
+    @Test
+    void peekLastshouldReturnLastElemet(){
+        stringLinked.addFirst("dcba");
+        stringLinked.addLast("abcd");
+        String  actional = stringLinked.peekLast();
+        assertEquals(actional, expectedElement);
     }
 }
