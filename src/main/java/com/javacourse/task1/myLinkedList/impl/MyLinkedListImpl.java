@@ -32,8 +32,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
     }
 
     @Override
-    public int size() {return size;
-    }
+    public int size() {return size;}
 
     @Override
     public boolean isEmpty() {return size == 0;}
@@ -67,7 +66,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
         }
         if(current == fstNode) fstNode = fstNode.getNextElement();
         else {
-            previous.nextElement= current.getNextElement();}
+            previous.prevElement = current.getPrevElement();}
            size--;
         return current.getCurrentElement();
 
