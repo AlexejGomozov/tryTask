@@ -2,6 +2,8 @@ package com.javacourse.task1.myLinkedList.impl;
 
 import com.javacourse.task1.myLinkedList.MyLinkedList;
 
+import java.util.Objects;
+
 public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
     private Node<E> fstNode;
@@ -59,17 +61,22 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
     @Override
     public E delete(E e) {
         Node<E> current = fstNode;
-        Node<E> previous = lstNode;
         while(current.getCurrentElement() != e){
             if(current.getNextElement() == null) return null;
             else current = current.getNextElement();
         }
-        if(current == fstNode) fstNode = fstNode.getNextElement();
-        else {
-            previous.prevElement = current.getPrevElement();}
+        if(current == fstNode) {
+            current = current.getNextElement();
+            current.nextElement.setPrevElement(null);}
+        if(current == lstNode) {
+            current = current.getPrevElement();
+            current.prevElement.setNextElement(null);
+        }else{
+            current.nextElement.setPrevElement(current.prevElement);
+            current.prevElement.setNextElement(current.nextElement);
+        }
            size--;
         return current.getCurrentElement();
-
     }
 
     @Override
@@ -111,6 +118,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
         return current.getNextElement();
     }
 
+
     private static class Node<E>{
             private E currentElement;
             private Node<E> nextElement;
@@ -135,4 +143,16 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
             public void setPrevElement(Node<E> prevElement) {this.prevElement = prevElement;}
         }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MyLinkedListImpl<?> that = (MyLinkedListImpl<?>) o;
+        return size == that.size && fstNode.equals(that.fstNode) && lstNode.equals(that.lstNode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fstNode, lstNode, size);
+    }
 }

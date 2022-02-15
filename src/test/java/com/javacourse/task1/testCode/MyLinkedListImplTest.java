@@ -46,6 +46,7 @@ public class MyLinkedListImplTest {
     void  deleteTest(){
         stringLinked.addFirst("abcd");
         stringLinked.addFirst("dcba");
+        stringLinked.addFirst("klfj");
         String  actional = stringLinked.delete("abcd");
         assertEquals(actional,expectedElement);
     }
