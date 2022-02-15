@@ -114,7 +114,7 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
         else return null;
     }
 
-    private Node<E> getNextElement(Node<E> current){
+    private Node<E> getNextElement(Node<E> current){ //для метода getElementByIndex()
         return current.getNextElement();
     }
 
@@ -143,16 +143,4 @@ public class MyLinkedListImpl<E> implements MyLinkedList<E> {
             public void setPrevElement(Node<E> prevElement) {this.prevElement = prevElement;}
         }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        MyLinkedListImpl<?> that = (MyLinkedListImpl<?>) o;
-        return size == that.size && fstNode.equals(that.fstNode) && lstNode.equals(that.lstNode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(fstNode, lstNode, size);
-    }
 }
