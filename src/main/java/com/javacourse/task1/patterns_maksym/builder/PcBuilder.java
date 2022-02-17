@@ -5,55 +5,55 @@ import com.javacourse.task1.patterns_maksym.builder.details.processor.Processor;
 import com.javacourse.task1.patterns_maksym.builder.details.ram.Ram;
 import com.javacourse.task1.patterns_maksym.builder.details.rom.Rom;
 
-public class PcBuilder implements Builder {
-    private Pc pc;
+public class PcBuilder implements PcBuilderInterface {
+    private PcClass pcClass;
 
 
     @Override
     public void startOrReset() {
-    pc = new Pc();
+    pcClass = new PcClass();
     }
 
     @Override
     public void addName(String name){
-        pc.pcName=name;
+        pcClass.pcName=name;
     }
 
     @Override
     public void addCase(Cases newCase) {
-        pc.casesName=newCase.getName();
-        pc.casesCost=newCase.getCost();
+        pcClass.casesName=newCase.getName();
+        pcClass.casesCost=newCase.getCost();
     }
 
     @Override
     public void addProcessor(Processor newProcessor) {
-        pc.processorName=newProcessor.getName();
-        pc.processorCost=newProcessor.getCost();
+        pcClass.processorName=newProcessor.getName();
+        pcClass.processorCost=newProcessor.getCost();
     }
 
     @Override
     public void addRam(Ram ram) {
-        pc.ramName=ram.getName();
-        pc.ramCost=ram.getCost();
+        pcClass.ramName=ram.getName();
+        pcClass.ramCost=ram.getCost();
     }
 
     @Override
     public void addRom(Rom rom) {
-        pc.romName=rom.getName();
-        pc.romCost=rom.getCost();
+        pcClass.romName=rom.getName();
+        pcClass.romCost=rom.getCost();
 
     }
 
     @Override
-    public void addGraphicCard(boolean choice) {
+    public void addGraphicCard(boolean choice) {        //можно выбрать существует ли граф.карта или нет
         if (choice){
-            pc.graphicCardName="Graphic Card exist";
-            pc.graphicCardCost=200;
+            pcClass.graphicCardName="Graphic Card exist";
+            pcClass.graphicCardCost=200;
         }
     }
 
     @Override
-    public Pc getResult() {
-        return pc;
+    public PcClass getResult() {
+        return pcClass;
     }
 }

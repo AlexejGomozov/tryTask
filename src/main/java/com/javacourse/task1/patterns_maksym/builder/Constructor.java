@@ -9,8 +9,8 @@ import com.javacourse.task1.patterns_maksym.builder.details.rom.Hdd;
 import com.javacourse.task1.patterns_maksym.builder.details.rom.Ssd;
 
 public class Constructor {
-    PcBuilder builder = new PcBuilder();
-    public Pc powerPc(){
+    public PcBuilder builder = new PcBuilder();
+    public void powerPc(){                    //создает заготовленный объекст из строителя
         builder.startOrReset();
         builder.addName("Power pc");
         builder.addCase(new LaptopCase());
@@ -18,10 +18,9 @@ public class Constructor {
         builder.addRam(new Ram(8));
         builder.addRom(new Ssd());
         builder.addGraphicCard(true);
-        return builder.getResult();
     }
 
-    public Pc weakPc(){
+    public void weakPc(){                      //смотрите выше
         builder.startOrReset();
         builder.addName("Weak pc");
         builder.addCase(new FullSizeCase());
@@ -29,14 +28,5 @@ public class Constructor {
         builder.addRam(new Ram(4));
         builder.addRom(new Hdd());
         builder.addGraphicCard(false);
-        return builder.getResult();
-    }
-
-    public static void main(String[] args) {
-        Constructor constructor = new Constructor();
-        Pc pc = constructor.powerPc();
-        System.out.println(pc.getPcCost());
-        System.out.println(pc.getPcSpecification());
-
     }
 }
