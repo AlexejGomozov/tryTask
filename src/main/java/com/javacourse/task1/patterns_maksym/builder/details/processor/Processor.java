@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns_maksym.builder.details;
+package com.javacourse.task1.patterns_maksym.builder.details.processor;
 
 public class Processor {
     private int cost;
