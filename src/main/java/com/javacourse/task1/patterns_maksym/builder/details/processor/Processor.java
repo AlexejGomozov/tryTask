@@ -3,10 +3,6 @@ package com.javacourse.task1.patterns_maksym.builder.details.processor;
 public class Processor {
     private int cost;
     private String name;
-    public Processor() {
-        cost = 0;
-        name = "noCpu";
-    }
 
     public void setNewCost(int newCost){
         if(newCost>=0){

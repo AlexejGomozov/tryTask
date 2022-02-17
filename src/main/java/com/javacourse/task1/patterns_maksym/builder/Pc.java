@@ -1,7 +1,7 @@
 package com.javacourse.task1.patterns_maksym.builder;
 
 public class Pc {
-    String PcName = "Default Pc";
+    String pcName = "Default Pc(Unnamed)";
     String processorName="no cpu";
     String casesName="no Case";
     String ramName="no RAM";
@@ -13,5 +13,7 @@ public class Pc {
     int ramCost=0;
     int romCost=0;
     int graphicCardCost=0;
+
+
 
 }
