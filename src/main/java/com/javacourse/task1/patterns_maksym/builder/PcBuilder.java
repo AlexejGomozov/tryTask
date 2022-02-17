@@ -2,7 +2,6 @@ package com.javacourse.task1.patterns_maksym.builder;
 
 import com.javacourse.task1.patterns_maksym.builder.details.cases.Cases;
 import com.javacourse.task1.patterns_maksym.builder.details.cases.LaptopCase;
-import com.javacourse.task1.patterns_maksym.builder.details.processor.Intel;
 import com.javacourse.task1.patterns_maksym.builder.details.processor.Processor;
 
 public class PcBuilder implements Builder {
@@ -12,6 +11,11 @@ public class PcBuilder implements Builder {
     String battery;
     String rom;
     String graphicCard;
+
+    @Override
+    public void newPc() {
+
+    }
 
     @Override
     public void addCase(Cases newCase) {
@@ -34,18 +38,18 @@ public class PcBuilder implements Builder {
     }
 
     @Override
-    public void addGraphicCard() {
+    public void addGraphicCard(boolean choice) {
 
     }
 
     @Override
-    public void getResult() {
+    public void getResult(Pc newPc) {
 
     }
 
     public static void main(String[] args) {
         PcBuilder one=new PcBuilder();
-        one.addProcessor(new Intel());
+        one.addProcessor(new Processor());
         one.addCase(new LaptopCase());
         System.out.println(one.processor.getCost());
         System.out.println(one.cases.getName());
