@@ -1,35 +1,35 @@
 package com.javacourse.task1.patterns_maksym.builder;
 
 import com.javacourse.task1.patterns_maksym.builder.details.cases.Cases;
-import com.javacourse.task1.patterns_maksym.builder.details.cases.LaptopCase;
 import com.javacourse.task1.patterns_maksym.builder.details.processor.Processor;
+import com.javacourse.task1.patterns_maksym.builder.details.ram.Ram;
 
 public class PcBuilder implements Builder {
-    Cases cases = new Cases();
-    Processor processor=new Processor();
-    String ram;
-    String battery;
-    String rom;
-    String graphicCard;
+    private Pc pc;
+
 
     @Override
-    public void newPc() {
-
+    public void newPc(Pc newPc) {
+    newPc=new Pc();
+    pc = newPc;
     }
 
     @Override
     public void addCase(Cases newCase) {
-    cases=newCase;
+    pc.casesName=newCase.getName();
+    pc.casesCost=newCase.getCost();
     }
 
     @Override
     public void addProcessor(Processor newProcessor) {
-    processor=newProcessor;
+    pc.processorName=newProcessor.getName();
+    pc.processorCost=newProcessor.getCost();
     }
 
     @Override
-    public void addRam() {
-
+    public void addRam(Ram ram) {
+    pc.ramName=ram.getName();
+    pc.ramCost=ram.getCost();
     }
 
     @Override
@@ -43,15 +43,11 @@ public class PcBuilder implements Builder {
     }
 
     @Override
-    public void getResult(Pc newPc) {
+    public Pc getResult(Pc newPc) {
 
     }
 
     public static void main(String[] args) {
-        PcBuilder one=new PcBuilder();
-        one.addProcessor(new Processor());
-        one.addCase(new LaptopCase());
-        System.out.println(one.processor.getCost());
-        System.out.println(one.cases.getName());
+
     }
 }

@@ -1,11 +1,12 @@
 package com.javacourse.task1.patterns_maksym.builder;
 
 public class Pc {
-    String processor="no cpu";
-    String cases="no Case";
-    String ram="no RAM";
-    String rom="No ROM";
-    String graphicCard="no graphic card";
+    String PcName = "Default Pc";
+    String processorName="no cpu";
+    String casesName="no Case";
+    String ramName="no RAM";
+    String romName="No ROM";
+    String graphicCardName="no graphic card";
 
     int processorCost=0;
     int casesCost=0;

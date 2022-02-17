@@ -3,10 +3,6 @@ package com.javacourse.task1.patterns_maksym.builder.details.cases;
 public class Cases {
     private int cost;
     private String name;
-    public Cases() {
-        cost = 0;
-        name = "noCase";
-    }
 
     public void setNewCost(int newCost){
         if(newCost>=0){
