@@ -14,6 +14,16 @@ public class Pc {
     int romCost=0;
     int graphicCardCost=0;
 
-
-
+    public int getPcCost(){
+        return processorCost+casesCost+ramCost+romCost+graphicCardCost;
+    }
+    public String getPcSpecification(){
+        String name = ("Pc name: " + pcName + "\n");
+        String proc = ("Processor type: " + processorName+"\n");
+        String cases = ("Case type: " + casesName + "\n");
+        String ram = ("Ram capacity: " + ramName + "\n");
+        String rom = ("Rom type: " + romName +"\n");
+        String card = ("Graphic card: " + graphicCardName +"\n");
+        return name + cases + proc + ram + rom + card;
+    }
 }

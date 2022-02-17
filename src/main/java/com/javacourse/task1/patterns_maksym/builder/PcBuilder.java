@@ -56,9 +56,4 @@ public class PcBuilder implements Builder {
     public Pc getResult() {
         return pc;
     }
-
-    public static void main(String[] args) {
-        PcBuilder build = new PcBuilder();
-
-    }
 }
