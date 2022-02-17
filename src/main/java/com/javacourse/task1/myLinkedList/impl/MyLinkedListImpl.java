@@ -2,8 +2,6 @@ package com.javacourse.task1.myLinkedList.impl;
 
 import com.javacourse.task1.myLinkedList.MyLinkedList;
 
-import java.util.Objects;
-
 public class MyLinkedListImpl<E> implements MyLinkedList<E> {
 
     private Node<E> fstNode;
