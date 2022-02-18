@@ -1,5 +1,10 @@
-package com.javacourse.task1.patterns.alexeyPatterns;
+package com.javacourse.task1.patterns.alexeyPatterns.patternFacade;
 
-public class AlexeyPattern1 {
-    //todo   change the name of class
+public class PatternFacade {
+
+    public static void main(String[] args) {
+        double rub = 5000;
+        double usd = Facade.rubToUSD(rub);
+        System.out.println(usd);
+    }
 }
