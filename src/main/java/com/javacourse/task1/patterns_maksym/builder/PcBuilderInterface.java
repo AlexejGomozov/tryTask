@@ -14,4 +14,5 @@ public interface PcBuilderInterface {
     void addRom(Rom rom);
     void addGraphicCard(boolean choice);
     PcClass getResult();                         //Возвращает собранный объект
+
 }
