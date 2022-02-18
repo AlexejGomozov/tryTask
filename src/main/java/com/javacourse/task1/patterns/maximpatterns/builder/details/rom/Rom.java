@@ -1,6 +1,6 @@
-package com.javacourse.task1.patterns_maksym.builder.details.cases;
+package com.javacourse.task1.patterns.maximpatterns.builder.details.rom;
 
-public class Cases {
+public class Rom {
     private int cost;
     private String name;
 

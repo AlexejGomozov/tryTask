@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns_maksym.builder;
+package com.javacourse.task1.patterns.maximpatterns.builder;
 
 public class PcClass {       //Класс конструктор для конструированных объектов
     String pcName = "Default Pc(Unnamed)";      //базовые параметры, если строитель не построил часть объекта

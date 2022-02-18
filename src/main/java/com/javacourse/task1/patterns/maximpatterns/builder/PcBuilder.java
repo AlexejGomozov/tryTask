@@ -1,9 +1,9 @@
-package com.javacourse.task1.patterns_maksym.builder;
+package com.javacourse.task1.patterns.maximpatterns.builder;
 
-import com.javacourse.task1.patterns_maksym.builder.details.cases.Cases;
-import com.javacourse.task1.patterns_maksym.builder.details.processor.Processor;
-import com.javacourse.task1.patterns_maksym.builder.details.ram.Ram;
-import com.javacourse.task1.patterns_maksym.builder.details.rom.Rom;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.cases.Cases;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.ram.Ram;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.rom.Rom;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.processor.Processor;
 
 public class PcBuilder implements PcBuilderInterface {
     private PcClass pcClass;

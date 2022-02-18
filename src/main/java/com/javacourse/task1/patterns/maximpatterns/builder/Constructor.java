@@ -1,15 +1,15 @@
-package com.javacourse.task1.patterns_maksym.builder;
+package com.javacourse.task1.patterns.maximpatterns.builder;
 
-import com.javacourse.task1.patterns_maksym.builder.details.cases.FullSizeCase;
-import com.javacourse.task1.patterns_maksym.builder.details.cases.LaptopCase;
-import com.javacourse.task1.patterns_maksym.builder.details.processor.Amd;
-import com.javacourse.task1.patterns_maksym.builder.details.processor.Intel;
-import com.javacourse.task1.patterns_maksym.builder.details.ram.Ram;
-import com.javacourse.task1.patterns_maksym.builder.details.rom.Hdd;
-import com.javacourse.task1.patterns_maksym.builder.details.rom.Ssd;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.cases.FullSizeCase;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.cases.LaptopCase;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.processor.Amd;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.processor.Intel;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.ram.Ram;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.rom.Hdd;
+import com.javacourse.task1.patterns.maximpatterns.builder.details.rom.Ssd;
 
 public class Constructor {
-    public PcBuilder builder = new PcBuilder();
+    public static final PcBuilder builder = new PcBuilder();
     public void powerPc(){                    //создает заготовленный объекст из строителя
         builder.startOrReset();
         builder.addName("Power pc");
