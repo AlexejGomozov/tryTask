@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns_maksym.builder.details.cases;
+package com.javacourse.task1.patterns.maximpatterns.builder.details.cases;
 
 public class LaptopCase extends Cases{
     public LaptopCase(){

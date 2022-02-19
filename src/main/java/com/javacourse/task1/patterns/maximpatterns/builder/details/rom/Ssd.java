@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns_maksym.builder.details.rom;
+package com.javacourse.task1.patterns.maximpatterns.builder.details.rom;
 
 public class Ssd extends Rom{
     public Ssd(){

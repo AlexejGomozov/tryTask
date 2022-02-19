@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns_maksym.builder.details.ram;
+package com.javacourse.task1.patterns.maximpatterns.builder.details.ram;
 
 public class Ram {
     private int cost;

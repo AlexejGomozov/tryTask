@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns_maksym.builder.details.processor;
+package com.javacourse.task1.patterns.maximpatterns.builder.details.processor;
 
 public class Intel extends Processor {
 
