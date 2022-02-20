@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns.alexeyPatterns.patternBuilder;
+package com.javacourse.task1.patterns.alexeypatterns.patternbuilder;
 
 public class House {
 

@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns.alexeyPatterns.patternMediator;
+package com.javacourse.task1.patterns.alexeypatterns.patternmediator;
 
 public class Engineer extends Person{
 

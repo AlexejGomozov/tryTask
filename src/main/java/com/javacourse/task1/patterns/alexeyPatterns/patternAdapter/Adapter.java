@@ -1,8 +1,8 @@
-package com.javacourse.task1.patterns.alexeyPatterns.patternAdapter;
+package com.javacourse.task1.patterns.alexeypatterns.patternadapter;
 
 public class Adapter {
-    private BankAccount b;
-    final double RATIO = 60;
+    private final BankAccount b;
+    static final double RATIO = 60;
 
     public Adapter(BankAccount b){
         this.b = b;

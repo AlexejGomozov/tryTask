@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns.alexeyPatterns.patternFacade;
+package com.javacourse.task1.patterns.alexeypatterns.patternfacade;
 
 public class PatternFacade {
 

@@ -1,9 +1,13 @@
-package com.javacourse.task1.patterns.alexeyPatterns.patternAdapter;
+package com.javacourse.task1.patterns.alexeypatterns.patternadapter;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PatternAdapter {
-
+    private static final Logger LOGGER = LogManager.getLogger();
     public static void main(String[] args) {
+
         Adapter a = new Adapter(new BankAccount());
-        System.out.println("Баланс в долларах: " + a.getSummaUSD());
-    }
+        LOGGER.info("Баланс в долларах: " + a.getSummaUSD());
+        }
 }
