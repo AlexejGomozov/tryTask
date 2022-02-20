@@ -1,4 +1,4 @@
-package com.javacourse.task1.patterns.alexeypatterns.patternadapter;
+package com.javacourse.task1.patterns.alexeypatterns.adapter;
 
 public class Adapter {
     private final BankAccount b;
