@@ -2,6 +2,8 @@ package com.javacourse.task1.patterns.alexeypatterns.builder;
 
 public class Architect {
 
+    private Architect(){}
+
     public static House getWoodHouse(){
         BuilderHouse builder = new BuilderHouse();
         builder.setWood(true);
