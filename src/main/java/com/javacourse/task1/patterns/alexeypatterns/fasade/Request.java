@@ -8,7 +8,6 @@ public class Request {
         this.url = url;
     }
     public String sendRequest(){
-        String s = "60";
-        return s;
+        return "60";
     }
 }
