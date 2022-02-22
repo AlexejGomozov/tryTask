@@ -12,6 +12,6 @@ public class Marketer extends Person{
     }
 
     public void notify(String message) {
-        LOGGER.info("Маркетолог получил сообщение: " + message);
+        LOGGER.info("Маркетолог получил сообщение: {}", message);
     }
 }

@@ -11,6 +11,6 @@ public class Engineer extends Person{
     }
 
     public void notify(String message) {
-        LOGGER.info("Инженер получил сообщение: " + message);
+        LOGGER.info("Инженер получил сообщение: {}", message);
     }
 }

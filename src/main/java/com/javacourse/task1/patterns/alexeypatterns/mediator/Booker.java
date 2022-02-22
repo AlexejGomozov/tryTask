@@ -12,6 +12,6 @@ public class Booker extends Person{
     }
 
     public void notify(String message) {
-        LOGGER.info("Бухгалтер получил сообщение: " + message);
+        LOGGER.info("Бухгалтер получил сообщение: {}", message);
     }
 }
